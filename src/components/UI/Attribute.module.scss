@@ -1,0 +1,93 @@
+.AttributeSelector {
+  // margin: 0 !important;
+  padding: 2% 0;
+
+  .Title {
+    margin-bottom: 2px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+  }
+
+  .Selector {
+    display: flex;
+    flex-direction: row;
+    margin: 0 !important;
+    // justify-content: space-between;
+    text-align: center;
+
+    .SizeActive,
+    .SizeSelector,
+    .PassiveSize {
+      display: block;
+      font-family: 'Source Sans Pro', sans-serif;
+      width: 30%;
+      height: 2.5em;
+      text-align: justify;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border: 1px solid #000000;
+
+      margin-right: 4px;
+
+      text-align: center;
+
+      p {
+        padding: 7px 0;
+      }
+    }
+
+    .SizeActive {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    .SizeSelector {
+      background-color: #ffffff;
+      color: #000000;
+      cursor: pointer;
+      &:hover {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    }
+
+    .ColorSelector,
+    .ColorSelectorActive,
+    .PassiveColor {
+      width: 1.5em;
+      height: 1.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1px;
+      margin-right: 2px;
+
+      div {
+        width: 95%;
+        height: 95%;
+        border: 1px solid #e2e2e2;
+      }
+    }
+
+    .ColorSelector {
+      cursor: pointer;
+      &:hover {
+        border: 1px solid #5ece7b;
+        div {
+          border: none;
+        }
+      }
+    }
+
+    .PassiveSize {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .ColorSelectorActive {
+      border: 1px solid #5ece7b;
+      div {
+        border: none;
+      }
+    }
+  }
+}

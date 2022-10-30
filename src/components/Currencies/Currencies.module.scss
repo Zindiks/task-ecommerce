@@ -1,0 +1,43 @@
+.sort {
+  cursor: pointer;
+  margin-right: 20px;
+  .label {
+    font-weight: 500;
+  }
+
+  img {
+    margin-left: 5px;
+  }
+
+  &:has(.sortPopup ul) {
+    .label {
+      img {
+        rotate: 180deg;
+      }
+    }
+  }
+  .sortPopup {
+    position: absolute;
+    right: 100px;
+    margin-top: 15px;
+    background: #ffffff;
+    box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    z-index: 99;
+  }
+  li {
+    overflow: hidden;
+    padding: 15px 25px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+  }
+
+  .ActiveSort {
+    background-color: #eeeeee;
+  }
+}
