@@ -1,4 +1,4 @@
-REACT -> RTK -> REACT-ROUTER-DOM
+<h1>REACT -> RTK -> REACT-ROUTER-DOM</h1>
 
 [app architecture]
 https://excalidraw.com/#json=MTp5oSC0IHdyMB2McgOJS,nXQqtrEjEkra1IIIe8WfyQ
@@ -21,10 +21,10 @@ Most difficult thing was to handle selected attributes... but i did it!
 
 
 
-<b>If you have any remarks or advises please share</b>
+<h3>If you have any remarks or advises please share</h3>
 
 
-Maybe I would try to make same project (new branch), but with different approach...
+<i>Maybe I would try to make same project (new branch), but with different approach...</i>
 
 
 
