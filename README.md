@@ -20,10 +20,13 @@ Using css modules styling for this project was kinda bad idea I think. If I woul
 ![Screenshot (20)](https://user-images.githubusercontent.com/103096207/198902769-fc798ebc-1abc-4f16-bad3-9a3ee41ee5c8.png)
 
 
+<i>If you have any remarks or advises please email me: klevi730@gmail.com </i> 
 
 
-<i>If you have any remarks or advises please share</i> klevi730@gmail.com
-<i>Maybe I would try to make same project (new branch), but with different approach...</i>
+<i>Maybe I would try to make same project (new branch) with different approach...</i>
+
+
+Thank you
 
 
 
