@@ -1,6 +1,7 @@
 REACT -> RTK -> REACT-ROUTER-DOM
 
-Here is my pseudo-architecture representation https://excalidraw.com/#json=MkDQGpKQV4LXLjZx0O5JT,Oa1rusGfOLE2FlIxf6kc9w
+[app architecture]
+https://excalidraw.com/#json=MkDQGpKQV4LXLjZx0O5JT,Oa1rusGfOLE2FlIxf6kc9w
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/103096207/198902712-0c3e4bd5-5cec-469b-9b8f-4db16b250e2c.png)
 ![Screenshot (16)](https://user-images.githubusercontent.com/103096207/198902775-86cadc64-e105-460f-8535-2e15e5f4b7a9.png)
