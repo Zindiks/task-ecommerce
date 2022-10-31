@@ -1,14 +1,15 @@
 <h1>REACT -> RTK -> REACT-ROUTER-DOM</h1>
 
 [app architecture]
-https://excalidraw.com/#json=MTp5oSC0IHdyMB2McgOJS,nXQqtrEjEkra1IIIe8WfyQ
+https://excalidraw.com/#json=0IfYfV8g0ooCbodXgmbkf,3kVI6BN87ouERES4_3YYRQ
 
-Using css modules styling for this project was kinda bad idea I think.If I would start over I rather try learn and use JSS Styled Components
-
-I haven't use Apollo GraphQL or Opus to query data, fetching data with RTK createAsyncThunk was enough for this task. I used 4 endpoints to get categories,currencies, one product by ID, all product within selected category.
 
 This task was tricky for me to tucle, mostly because I never worked with class components. 
 Most difficult thing was to handle selected attributes... but i did it!
+
+I haven't use <strong>Apollo GraphQL</strong> or <strong>Opus</strong> to query data, fetching data with <strong>RTK createAsyncThunk</strong> was enough for this task. I used 4 endpoints to get <i>categories,currencies, one product by ID, all product within selected category.</i>
+
+Using css modules styling for this project was kinda bad idea I think. If I would start over I rather try learn and use JSS Styled Components
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/103096207/198902712-0c3e4bd5-5cec-469b-9b8f-4db16b250e2c.png)
 
