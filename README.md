@@ -22,7 +22,7 @@ Using css modules styling for this project was kinda bad idea I think. If I woul
 
 
 
-<h3>If you have any remarks or advises please share</h3>
+<h3>If you have any remarks or advises please share</h3> klevi730@gmail.com
 
 
 <i>Maybe I would try to make same project (new branch), but with different approach...</i>
