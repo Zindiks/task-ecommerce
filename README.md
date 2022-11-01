@@ -1,15 +1,15 @@
 <h1>REACT -> RTK -> REACT-ROUTER-DOM</h1>
 
 [app architecture]
-https://excalidraw.com/#json=0IfYfV8g0ooCbodXgmbkf,3kVI6BN87ouERES4_3YYRQ
+https://excalidraw.com/#json=0IfYfV8g0ooCbodXgmbkf,3kVI6BN87ouERES4_3YYRQ   
+<i>(I made it for myself to track how my App works, it's not like 100% accurate or smth)</i>
 
 
-This task was tricky for me to tucle, mostly because I never worked with class components. 
-Most difficult thing was to handle selected attributes... but i did it!
+This task was tricky for me to tucle, mostly, because I never used to work with class components. 
+Most difficult part was to handle selected attributes... btw this task was helpful and I learned a lot
 
-I haven't use <strong>Apollo GraphQL</strong> or <strong>Opus</strong> to query data, fetching data with <strong>RTK createAsyncThunk</strong> was enough for this task. I used 4 endpoints to get <i>categories,currencies, one product by ID, all product within selected category.</i>
-
-Using css modules styling for this project was kinda bad idea I think. If I would start over I rather try learn and use JSS Styled Components
+I haven't use <strong>Apollo GraphQL</strong> or <strong>Opus</strong> to query data. Fetching data with <strong>RTK createAsyncThunk</strong> was enough for this task. I used 4 endpoints to get <i>categories,currencies, one product by ID, all product within selected category.</i>
+I kinda think that 
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/103096207/198902712-0c3e4bd5-5cec-469b-9b8f-4db16b250e2c.png)
 
@@ -20,8 +20,8 @@ Using css modules styling for this project was kinda bad idea I think. If I woul
 ![Screenshot (20)](https://user-images.githubusercontent.com/103096207/198902769-fc798ebc-1abc-4f16-bad3-9a3ee41ee5c8.png)
 
 
-<i>If you have any remarks or advises please email me: klevi730@gmail.com </i> 
-
+<i>If you have any remarks or advises please email me: klevi730@gmail.com  
+All feedback welcomed )) </i>
 
 <i>Maybe I would try to make same project (new branch) with different approach...</i>
 
