@@ -23,10 +23,10 @@ I kinda think that
 <i>If you have any remarks or advises please email me: klevi730@gmail.com  
 All feedback welcomed )) </i>
 
-<i>Maybe I would try to make same project (new branch) with different approach...</i>
+<i>Maybe I would try to make same project (new branch) with different approach...  </i>
 
 
-Thank you
+Thank you!
 
 
 
