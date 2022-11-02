@@ -1,7 +1,8 @@
 <h1>REACT -> RTK -> REACT-ROUTER-DOM</h1>
 
 [app architecture]
-https://excalidraw.com/#json=0IfYfV8g0ooCbodXgmbkf,3kVI6BN87ouERES4_3YYRQ   
+![Безымянный-2022-11-02-1033 excalidraw](https://user-images.githubusercontent.com/103096207/199440178-322f0fd8-eca1-4c12-9d0d-b495381778b1.png)
+
 <i>(I made it for myself to track how my App works, it's not like 100% accurate or smth)</i>
 
 
