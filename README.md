@@ -21,8 +21,7 @@ I kinda think that
 ![Screenshot (20)](https://user-images.githubusercontent.com/103096207/198902769-fc798ebc-1abc-4f16-bad3-9a3ee41ee5c8.png)
 
 
-<i>If you have any remarks or advises please email me: klevi730@gmail.com  
-All feedback welcomed )) </i>
+<i>If you have any remarks or advises please email me: klevi730@gmail.com  </i>
 
 <i> P.S. Maybe I would try to make same project (new branch) with different approach...  </i>
 
