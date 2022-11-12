@@ -10,7 +10,6 @@ This task was tricky for me to tucle, mostly, because I never used to work with 
 Most difficult part was to handle selected attributes... btw this task was helpful and I learned a lot
 
 I haven't use <strong>Apollo GraphQL</strong> or <strong>Opus</strong> to query data. Fetching data with <strong>RTK createAsyncThunk</strong> was enough for this task. I used 4 endpoints to get <i>categories,currencies, one product by ID, all product within selected category.</i>
-I kinda think that 
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/103096207/198902712-0c3e4bd5-5cec-469b-9b8f-4db16b250e2c.png)
 
