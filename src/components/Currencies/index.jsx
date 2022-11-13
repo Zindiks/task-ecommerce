@@ -38,7 +38,7 @@ export class Currencies extends Component {
         </div>
 
         <div className={Style.sortPopup}>
-          {this.props.isActive && (
+          {this.props.isActive && this.props.currenciesData &&(
             <ul>
               {this.props.currenciesData.map((currency) => {
                 return (
