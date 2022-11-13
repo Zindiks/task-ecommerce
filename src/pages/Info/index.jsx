@@ -13,7 +13,7 @@ class Info extends Component {
     return (
       <div className={Style.Info}>
         <h1>
-          THE PAGE "{this.props.params['*']}" NOT FOUND {':('}{' '}
+          PAGE "{this.props.params['*']}" DO NOT EXIST {':('}{' '}
         </h1>
         <div>
           <Link to="/all">
