@@ -1,4 +1,5 @@
 <h1>REACT -> RTK -> REACT-ROUTER-DOM</h1>
+! NOT RESPONSIVE !
 
 [app architecture]
 ![Безымянный-2022-11-02-1033 excalidraw](https://user-images.githubusercontent.com/103096207/199440178-322f0fd8-eca1-4c12-9d0d-b495381778b1.png)
