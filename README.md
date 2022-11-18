@@ -1,4 +1,4 @@
-<h1>REACT -> RTK -> REACT-ROUTER-DOM</h1>
+<h1>REACT + RTK </h1>
 ! NOT RESPONSIVE !
 
 [app architecture]
