@@ -40,7 +40,7 @@ export class Currencies extends Component {
         <div className={Style.sortPopup}>
           {this.props.isActive && this.props.currenciesData &&(
             <ul>
-              {this.props.currenciesData.map((currency) => {
+              {this.props.currenciesData.map && this.props.currenciesData.map((currency) => {
                 return (
                   <li
                     onClick={() => this.onChangeCurrency(currency)}
