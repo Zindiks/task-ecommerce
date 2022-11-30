@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit'
 
 const initialState = {
   selectedData: JSON.parse(localStorage.getItem('CART_DATA')) || [],
