@@ -15,8 +15,6 @@
 .Content {
   height: 400px;
   overflow-y: scroll;
-  // overflow: hidden;
-
   &::-webkit-scrollbar {
     display: none;
   }
@@ -36,7 +34,6 @@
     display: flex;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    // font-size: 24px;
     p {
       width: 120px;
     }

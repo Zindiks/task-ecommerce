@@ -4,10 +4,11 @@ import AttributeSelector from '../../components/UI/AttributeSelector';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { onClickPlus } from '../../store/slices/cartSlice';
-import { reqGetDetail } from '../../graphql/requests'; // just refactored GraphQL request/queries
+import { reqGetDetail } from '../../graphql/requests';
 import { fetchProductDetails, setSelectedToEpmty } from '../../store/slices/productSlice';
 import ButtonBtn from '../../components/UI/ButtonBtn';
 import { createArticleInObject } from '../../utils/calculations';
+import HTMLReactParser from 'html-react-parser';
 
 function withParams(Component) {
   return (props) => <Component {...props} params={useParams()} />;
@@ -89,11 +90,11 @@ export class ProductDetails extends Component {
           ) : (
             <ButtonBtn status="passive" title="OUT OF STOCK" />
           )}
-
-          <div
-            className={Style.Description}
-            dangerouslySetInnerHTML={{ __html: this.props.data.data.product.description }}
-          ></div>
+          {/* //DONE: replaced
+            dangerouslySetInnerHtml to HTMLReactParser */}
+          <div className={Style.Description}>
+            {HTMLReactParser(this.props.data.data.product.description)}
+          </div>
         </div>
       </div>
     ) : (

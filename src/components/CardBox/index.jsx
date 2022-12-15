@@ -27,18 +27,19 @@ class CardBox extends Component {
                 />
               </div>
               <div className={this.props.item.inStock ? '' : Style.OOS}>
-                <p>{this.props.item.name}</p>
-
-                <h5>
-                  <span>
-                    {this.props.currency.symbol}{' '}
-                    {
-                      this.props.item.prices.filter((price) => {
-                        return price.currency.symbol === this.props.currency.symbol;
-                      })[0].amount
-                    }
-                  </span>
-                </h5>
+                <p>
+                  <strong>{this.props.item.brand}</strong> {this.props.item.name}
+                </p>
+                {this.props.currency !== null && (
+                  <h5>
+                    <span>
+                      {this.props.currency.symbol}
+                      {this.props.item.prices
+                        .filter((price) => price.currency.symbol === this.props.currency.symbol)[0]
+                        .amount.toFixed(2)}
+                    </span>
+                  </h5>
+                )}
               </div>
             </Link>
 
