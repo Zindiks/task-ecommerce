@@ -7,7 +7,7 @@ import CartList from './pages/CartList';
 import { connect } from 'react-redux';
 import { Layout } from './Layout';
 import Info from './pages/Info';
-import { reqGetAll } from './utils/requests';
+import { reqGetAll } from './graphql/requests';
 import { fetchProducts } from './store/slices/productSlice';
 import { fetchCategories, fetchCurrencies } from './store/slices/headerSlice';
 

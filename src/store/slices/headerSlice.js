@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { reqCategories, reqCurrencies } from '../../utils/requests';
+import { reqCategories, reqCurrencies } from '../../graphql/requests';
 
 export const fetchCategories = createAsyncThunk('header/fetchCategories', async () => {
   const data = await fetch('http://localhost:4000', {

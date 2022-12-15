@@ -4,7 +4,7 @@ import AttributeSelector from '../../components/UI/AttributeSelector';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { onClickPlus } from '../../store/slices/cartSlice';
-import { reqGetDetail } from '../../utils/requests'; // just refactored GraphQL request/queries
+import { reqGetDetail } from '../../graphql/requests'; // just refactored GraphQL request/queries
 import { fetchProductDetails, setSelectedToEpmty } from '../../store/slices/productSlice';
 import ButtonBtn from '../../components/UI/ButtonBtn';
 import { createArticleInObject } from '../../utils/calculations';

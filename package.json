@@ -39,5 +39,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "<h1>REACT + RTK </h1>\r ! NOT RESPONSIVE !",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zindiks/task-ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zindiks/task-ecommerce/issues"
+  },
+  "homepage": "https://github.com/Zindiks/task-ecommerce#readme"
 }
