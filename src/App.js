@@ -40,9 +40,10 @@ export class App extends Component {
             <Route path="*" element={<Info />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cartlist" element={<CartList />} />
-            <Route path="/all" element={<Home />} />
-            <Route path="/tech" element={<Home />} />
-            <Route path="/clothes" element={<Home />} />
+            {this.props.categoriesData &&
+              this.props.categoriesData.map((category) => (
+                <Route path={`/${category.name}`} element={<Home />} key={category.name} />
+              ))}
           </Route>
         </Routes>
       </div>
@@ -52,6 +53,7 @@ export class App extends Component {
 
 const mapStateToProps = (state) => ({
   category: state.headerSlice.category,
+  categoriesData: state.headerSlice.categoriesData,
 });
 
 const mapDispatchToProps = (dispatch) => ({
