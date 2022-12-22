@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { reqCategories, reqCurrencies } from '../../graphql/requests';
+import { reqCategories, reqCurrencies } from '../../graphql/queries';
 
 export const fetchCategories = createAsyncThunk('header/fetchCategories', async () => {
   const data = await fetch('http://localhost:4000', {
@@ -71,11 +71,8 @@ const headerSlice = createSlice({
       state.currenciesData = payload.data.currencies;
 
       if (state.currency === null) {
-        state.currency = payload.data.currencies[0];
+        state.currency = payload.data.currencies[0]; //NOTE: first currency option by default
       }
-
-      console.log(payload.data.currencies[0]);
-
       state.currencieStatus = 'loaded';
     },
     [fetchCurrencies.rejected]: (state) => {

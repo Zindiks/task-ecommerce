@@ -1,9 +1,11 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { onClickPlus, onClickMinus } from '../../store/slices/cartSlice';
-import Style from './CartItem.module.scss';
 
 import AttributeSelectorPassive from '../UI/AttributeSelectorPassive';
+
+import Style from './CartItem.module.scss';
 
 class CartItem extends Component {
   constructor(props) {

@@ -1,15 +1,16 @@
 import { Component } from 'react';
-import './styles.scss';
-import Home from './pages/Home';
 import { Routes, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { fetchCategories, fetchCurrencies } from './store/slices/headerSlice';
+import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import CartList from './pages/CartList';
-import { connect } from 'react-redux';
-import { Layout } from './Layout';
 import Info from './pages/Info';
-import { reqGetAll } from './graphql/requests';
-import { fetchProducts } from './store/slices/productSlice';
-import { fetchCategories, fetchCurrencies } from './store/slices/headerSlice';
+
+import { Layout } from './Layout';
+
+import './styles.scss';
 
 export class App extends Component {
   constructor(props) {
@@ -20,15 +21,11 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchProducts(reqGetAll(this.props.category));
-    this.props.fetchCategories();
-    this.props.fetchCurrencies();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.category !== this.props.category) {
-      this.props.fetchProducts(reqGetAll(this.props.category));
-    }
+    const basic = async () => {
+      await this.props.fetchCategories();
+      await this.props.fetchCurrencies();
+    };
+    basic();
   }
 
   render() {
@@ -40,10 +37,7 @@ export class App extends Component {
             <Route path="*" element={<Info />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cartlist" element={<CartList />} />
-            {this.props.categoriesData &&
-              this.props.categoriesData.map((category) => (
-                <Route path={`/${category.name}`} element={<Home />} key={category.name} />
-              ))}
+            <Route path="/:id" element={<Home />} />
           </Route>
         </Routes>
       </div>
@@ -57,7 +51,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProducts: (data) => dispatch(fetchProducts(data)),
   fetchCategories: () => dispatch(fetchCategories()),
   fetchCurrencies: () => dispatch(fetchCurrencies()),
 });

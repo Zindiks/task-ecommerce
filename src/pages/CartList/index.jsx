@@ -1,10 +1,12 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { getTotalPrice, getCartCount } from '../../utils/calculations';
-import CartItem from '../../components/CartItem';
-import Style from './CartList.module.scss';
-import ButtonBtn from '../../components/UI/ButtonBtn';
 import { cleanData } from '../../store/slices/cartSlice';
+import CartItem from '../../components/CartItem';
+import ButtonBtn from '../../components/UI/ButtonBtn';
+
+import Style from './CartList.module.scss';
 
 class CartList extends Component {
   render() {
@@ -36,7 +38,8 @@ class CartList extends Component {
           </div>
           <div>
             <p>Quantity:</p>
-            <h3>{getCartCount(this.props.selectedData)}</h3>
+            {/* <h3>{getCartCount(this.props.selectedData)}</h3> */}
+            <h3>{this.props.cartCount}</h3>
           </div>
 
           <div>
@@ -59,6 +62,7 @@ class CartList extends Component {
 const mapStateToProps = (state) => ({
   selectedData: state.cartSlice.selectedData,
   currency: state.headerSlice.currency,
+  cartCount: state.cartSlice.cartCount,
 });
 
 const mapDispatchToProps = (dispatch) => ({

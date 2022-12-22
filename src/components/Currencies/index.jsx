@@ -34,7 +34,7 @@ export class Currencies extends Component {
 
   render() {
     if (this.props.currency === null) {
-      return <></>;
+      return <>...</>;
     }
     return (
       <div className={Style.sort} ref={this.ref}>

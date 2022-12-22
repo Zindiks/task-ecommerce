@@ -1,19 +1,19 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import Style from './CardBox.module.scss';
-import { onClickPlus } from '../../store/slices/cartSlice';
 import { Link } from 'react-router-dom';
-import Skeleton from './Skeleton';
-import { createArticleInObject } from '../../utils/calculations';
-// import ContentLoader from 'react-content-loader';
 
-// onClick={() => this.props.setSelected(this.props.item)}
+import { onClickPlus } from '../../store/slices/cartSlice';
+import { createArticleInObject } from '../../utils/calculations';
+
+import Skeleton from './Skeleton';
+
+import Style from './CardBox.module.scss';
 
 class CardBox extends Component {
   render() {
     return (
       <div className={Style.card}>
-        {this.props.status === 'loading' ? (
+        {this.props.status === true ? (
           <Skeleton />
         ) : (
           <>

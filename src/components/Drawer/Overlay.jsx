@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Style from './Drawer.module.scss';
 
 class Overlay extends Component {

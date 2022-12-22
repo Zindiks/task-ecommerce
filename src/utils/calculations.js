@@ -9,7 +9,11 @@ export const getTotalPrice = (selected, currency) => {
 };
 
 export const getCartCount = (selected) => {
-  return selected.reduce((total, current) => current.count + total, 0);
+  if (selected) {
+    return selected.reduce((total, current) => current.count + total, 0);
+  } else {
+    return 0;
+  }
 };
 
 export const createArticleInObject = (item) => {

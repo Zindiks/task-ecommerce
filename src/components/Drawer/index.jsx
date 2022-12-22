@@ -1,16 +1,19 @@
 import { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-import CartItem from '../CartItem';
-import { setDrawerClose, setIsDrawerOpen } from '../../store/slices/headerSlice';
 import { Link } from 'react-router-dom';
+
+import { getTotalPrice } from '../../utils/calculations';
+import { setDrawerClose, setIsDrawerOpen } from '../../store/slices/headerSlice';
+import CartItem from '../CartItem';
+
 import Style from './Drawer.module.scss';
-import { getTotalPrice, getCartCount } from '../../utils/calculations';
 
 export class Drawer extends Component {
   constructor(props) {
     super(props);
 
     this.refDrawer = createRef();
+
     this.handleClickOutside = (e) => {
       if (!e.path.includes(this.refDrawer.current)) {
         this.props.setDrawerClose();
@@ -29,8 +32,8 @@ export class Drawer extends Component {
       <div ref={this.refDrawer}>
         <div onClick={() => this.props.setIsDrawerOpen()}>
           <img className={Style.cartImg} src="../img/header-cart.png" alt="cart" />
-          {getCartCount(this.props.selectedData) > 0 && (
-            <div className={Style.cartItemCounter}>{getCartCount(this.props.selectedData)}</div>
+          {this.props.cartCount > 0 && (
+            <div className={Style.cartItemCounter}>{this.props.cartCount}</div>
           )}
         </div>
 
@@ -39,7 +42,7 @@ export class Drawer extends Component {
             <div className={Style.drawer}>
               <div className={Style.drawerHead}>
                 <h3>
-                  MyBag. <span>{getCartCount(this.props.selectedData)} items</span>
+                  MyBag. <span>{this.props.cartCount} items</span>
                 </h3>
               </div>
 
@@ -78,6 +81,7 @@ const mapStateToProps = (state) => ({
   isDrawerOpen: state.headerSlice.isDrawerOpen,
   selectedData: state.cartSlice.selectedData,
   currency: state.headerSlice.currency,
+  cartCount: state.cartSlice.cartCount,
 });
 
 const mapDispatchToProps = (dispatch) => ({
