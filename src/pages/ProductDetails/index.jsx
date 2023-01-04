@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Query } from '@apollo/client/react/components';
 import HTMLReactParser from 'html-react-parser';
+import cn from 'classnames';
 
 import Empty from '../../components/Empty';
 import AttributeSelector from '../../components/UI/AttributeSelector';
 import ButtonBtn from '../../components/UI/ButtonBtn';
 import { onClickPlus } from '../../store/slices/cartSlice';
+import { setCategory } from '../../store/slices/headerSlice';
+import { setSelectedAttributesToEmpty } from '../../store/slices/productSlice';
 import { createArticleInObject } from '../../utils/calculations';
 import { QUERY_PRODUCT_BY_ID } from '../../graphql/queries';
-import { setCategory } from '../../store/slices/headerSlice';
 
 import Style from './ProductDetails.module.scss';
 
@@ -28,6 +30,7 @@ export class ProductDetails extends Component {
 
   componentDidMount() {
     this.props.onChange('');
+    this.props.setSelectedAttributesToEmpty();
   }
 
   render() {
@@ -45,11 +48,15 @@ export class ProductDetails extends Component {
             );
           }
           if (data?.product === null) {
-            return <Empty message={`HAVEN'T FOUND A PARTICULAR PRODUCT`} />;
+            return <Empty message={`PRODUCT NOT FOUND`} />;
           }
           return (
             <div className={Style.Item}>
-              <div className={Style.ImgList}>
+              <div
+                className={cn(Style.ImgList, {
+                  [Style.OOS]: data.product.inStock === false,
+                })}
+              >
                 {data.product.gallery.map((image, index) => {
                   return (
                     <img
@@ -62,9 +69,15 @@ export class ProductDetails extends Component {
                   );
                 })}
               </div>
-
               <div className={Style.SelectedImg}>
-                <img src={data.product.gallery[this.state.selectedImg]} alt={data.product.id} />
+                {data.product.inStock === true ? (
+                  <img src={data.product.gallery[this.state.selectedImg]} alt={data.product.id} />
+                ) : (
+                  <div className={Style.OOS}>
+                    <img src={data.product.gallery[this.state.selectedImg]} alt={data.product.id} />
+                    <p className={Style.OOStext}>OUT OF STOCK</p>
+                  </div>
+                )}
               </div>
 
               <div className={Style.Info}>
@@ -84,7 +97,7 @@ export class ProductDetails extends Component {
 
                   <h5>
                     <span>
-                      {this.props.currency.symbol}{' '}
+                      {this.props.currency.symbol}
                       {data.product.prices
                         .filter((price) => {
                           return price.currency.symbol === this.props.currency.symbol;
@@ -121,6 +134,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onClickPlus: (value) => dispatch(onClickPlus(value)),
   onChange: (value) => dispatch(setCategory(value)),
+  setSelectedAttributesToEmpty: () => dispatch(setSelectedAttributesToEmpty()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withParams(ProductDetails));

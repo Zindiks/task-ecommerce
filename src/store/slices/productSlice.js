@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  data: '',
   status: 'loading',
   selected: '',
   selectedStatus: 'loading',
+  selectedAttributes: [],
 };
 
 const productSlice = createSlice({
@@ -33,13 +33,31 @@ const productSlice = createSlice({
       state.selected.data.product.attributes = attributes;
       state.selected.data.product.article = article;
     },
-
     setSelectedToEpmty(state) {
       state.selected = '';
+    },
+    setSelectedAttributes(state, { payload }) {
+      const index = state.selectedAttributes.findIndex((item) => item.type === payload.type);
+
+      if (index !== -1) {
+        // Replace the object
+        state.selectedAttributes.splice(index, 1, payload);
+      } else {
+        // Add the new object to the end of the array
+        state.selectedAttributes.push(payload);
+      }
+    },
+    setSelectedAttributesToEmpty(state) {
+      state.selectedAttributes = [];
     },
   },
 });
 
-export const { setSelectedToEpmty, updateSelectedAttribute } = productSlice.actions;
+export const {
+  setSelectedToEpmty,
+  updateSelectedAttribute,
+  setSelectedAttributes,
+  setSelectedAttributesToEmpty,
+} = productSlice.actions;
 
 export default productSlice.reducer;

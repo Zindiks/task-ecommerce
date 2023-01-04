@@ -26,19 +26,27 @@ class CartItem extends Component {
     return price.toFixed(2);
   }
 
-  onClickRight = () => {
-    if (this.state.value < this.state.total) {
-      this.setState({ value: this.state.value + 1 });
-    } else {
-      this.setState({ value: 0 });
-    }
-  };
+  // onClickRight = () => {
+  //   if (this.state.value < this.state.total) {
+  //     this.setState({ value: this.state.value + 1 });
+  //   } else {
+  //     this.setState({ value: 0 });
+  //   }
+  // };
 
-  onClickLeft = () => {
-    if (this.state.value > 0) {
-      this.setState({ value: this.state.value - 1 });
+  // onClickLeft = () => {
+  //   if (this.state.value > 0) {
+  //     this.setState({ value: this.state.value - 1 });
+  //   } else {
+  //     this.setState({ value: this.state.total });
+  //   }
+  // };
+
+  onClickDirection = (direction) => {
+    if (direction === 'left') {
+      this.setState({ value: this.state.value === 0 ? this.state.total : this.state.value - 1 });
     } else {
-      this.setState({ value: this.state.total });
+      this.setState({ value: this.state.value === this.state.total ? 0 : this.state.value + 1 });
     }
   };
 
@@ -117,7 +125,7 @@ class CartItem extends Component {
 
             {this.state.total > 1 && this.props.isActive && (
               <>
-                <div className={Style.btnLeft} onClick={() => this.onClickRight()}>
+                <div className={Style.btnLeft} onClick={() => this.onClickDirection('right')}>
                   <svg
                     width="8"
                     height="14"
@@ -135,7 +143,7 @@ class CartItem extends Component {
                   </svg>
                 </div>
 
-                <div className={Style.btnRight} onClick={() => this.onClickLeft()}>
+                <div className={Style.btnRight} onClick={() => this.onClickDirection('left')}>
                   <svg
                     width="8"
                     height="14"

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Query } from '@apollo/client/react/components';
 import { useParams } from 'react-router-dom';
 
+import { setSelectedAttributesToEmpty } from '../../store/slices/productSlice';
 import { QUERY_DATA_BY_CATEGORY } from '../../graphql/queries';
 import { setCategory } from '../../store/slices/headerSlice';
 import CardBox from '../../components/CardBox';
@@ -15,6 +16,10 @@ function withParams(Component) {
 }
 
 export class Home extends Component {
+  componentDidMount() {
+    this.props.setSelectedAttributesToEmpty();
+  }
+
   componentDidUpdate() {
     this.props.onChange(this.props.params.id);
   }
@@ -41,17 +46,13 @@ export class Home extends Component {
 
           return (
             <div className={Style.containerHome}>
-              {data && (
-                <>
-                  <h1>{this.props.category.toUpperCase()}</h1>
-                  <div className={Style.container}>
-                    {data &&
-                      data.category.products.map((item) => (
-                        <CardBox key={item.id} item={item} status={loading} />
-                      ))}
-                  </div>
-                </>
-              )}
+              <h1>{this.props.category.toUpperCase()}</h1>
+              <div className={Style.container}>
+                {data?.category &&
+                  data.category.products.map((item) => (
+                    <CardBox key={item.id} item={item} status={loading} />
+                  ))}
+              </div>
             </div>
           );
         }}
@@ -66,6 +67,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onChange: (value) => dispatch(setCategory(value)),
+  setSelectedAttributesToEmpty: () => dispatch(setSelectedAttributesToEmpty()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withParams(Home));

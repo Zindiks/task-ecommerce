@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateSelectedAttribute } from '../../store/slices/productSlice';
+import { updateSelectedAttribute, setSelectedAttributes } from '../../store/slices/productSlice';
 import Style from './Attribute.module.scss';
 
 export class AttributeSelector extends Component {
@@ -14,10 +14,13 @@ export class AttributeSelector extends Component {
   }
 
   onHandleClick(input) {
-    // console.log(input);
-    // this.props.updateSelectedAttribute(input);
-    // this.setState({ selected: input });
     this.setState({ selected: input.id });
+    const obj = {
+      type: this.props.id,
+      active: input.id,
+    };
+
+    this.props.setSelectedAttributes(obj);
   }
 
   render() {
@@ -54,6 +57,7 @@ export class AttributeSelector extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   updateSelectedAttribute: (value) => dispatch(updateSelectedAttribute(value)),
+  setSelectedAttributes: (value) => dispatch(setSelectedAttributes(value)),
 });
 
 export default connect(null, mapDispatchToProps)(AttributeSelector);

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getTotalPrice, getCartCount } from '../../utils/calculations';
+import { getTotalPrice } from '../../utils/calculations';
 import { cleanData } from '../../store/slices/cartSlice';
 import CartItem from '../../components/CartItem';
 import ButtonBtn from '../../components/UI/ButtonBtn';

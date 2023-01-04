@@ -2,7 +2,7 @@
   cursor: pointer;
   margin-right: 20px;
   .label {
-    font-weight: 500;
+    font-weight: var(--fw-500);
   }
 
   img {
@@ -20,7 +20,7 @@
     position: absolute;
     right: 100px;
     margin-top: 15px;
-    background: #ffffff;
+    background: var(--white);
     box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     padding: 0;
@@ -33,11 +33,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #eeeeee;
+      background-color: var(--light-gray);
     }
   }
 
   .ActiveSort {
-    background-color: #eeeeee;
+    background-color: var(--light-gray);
   }
 }
