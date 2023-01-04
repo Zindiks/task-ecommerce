@@ -1,0 +1,32 @@
+:root {
+  --primary: #5ece7b;
+  --primary-active: #69e289;
+  --primary-hover: #4fb66b;
+
+  --black: #000;
+  --white: #fff;
+  --light-gray: #eeeeee;
+  --dark-gray: #888888;
+
+  --font-raleway: 'Raleway', sans-serif;
+  --font-roboto: 'Roboto Condensed', sans-serif;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-raleway);
+}
+
+.wrapper {
+  // width: 1440px;
+  margin: 0 auto;
+  background-color: var(--white);
+  position: relative;
+}

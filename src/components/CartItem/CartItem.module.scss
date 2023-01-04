@@ -1,0 +1,116 @@
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+  .cartItemOptions {
+    display: flex;
+    flex-direction: column;
+    width: 148px;
+    height: 100%;
+
+    .cartItemOptionsX {
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      overflow-y: scroll;
+
+      &:hover {
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--primary);
+        }
+
+        &::-webkit-scrollbar {
+          width: 3px;
+          background-color: #f5f5f5;
+        }
+      }
+    }
+    .cartItemOptionsX::-webkit-scrollbar {
+      width: 3px;
+      background-color: none;
+    }
+    h3,
+    p {
+      margin-bottom: 6px;
+    }
+
+    h4 {
+      margin-bottom: 7px;
+    }
+
+    .attributes {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .cartQI {
+    display: flex;
+    flex-direction: row;
+
+    .cartQuantity {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      font-weight: var(--fw-500);
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: 0;
+      padding: 5px 0;
+      height: 190px;
+
+      .selector {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .cartImage {
+      margin-left: 1%;
+
+      transition: all 0.2s ease-in-out;
+      img {
+        width: 121px;
+        height: 190px;
+        object-fit: contain;
+      }
+      position: relative;
+
+      .btnLeft,
+      .btnRight {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+
+      .btnRight {
+        left: 70px;
+        top: 160px;
+
+        svg {
+          position: absolute;
+          top: 5px;
+          left: 7px;
+        }
+      }
+
+      .btnLeft {
+        rotate: 180deg;
+
+        left: 95px;
+        top: 160px;
+
+        svg {
+          position: absolute;
+          top: 5px;
+          left: 6px;
+        }
+      }
+    }
+  }
+}

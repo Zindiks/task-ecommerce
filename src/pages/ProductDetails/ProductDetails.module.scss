@@ -1,0 +1,74 @@
+.Item {
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  margin-top: 70px;
+  padding-bottom: 200px;
+}
+
+.ImgList {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center top;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .Active {
+    border: 1px solid var(--dark-gray);
+    padding: 2px;
+  }
+}
+
+.SelectedImg {
+  img {
+    width: 610px;
+    height: 511px;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.Info,
+.Title,
+.Attributes,
+.Price,
+.Description {
+  width: 292px;
+  overflow: hidden;
+  margin: 10px 0;
+
+  .Description {
+    font-family: var(--font-roboto);
+    font-weight: var(--fw-400);
+    font-size: 16;
+  }
+}
+
+.Price {
+  p {
+    font-family: var(--font-roboto);
+    font-weight: var(--fw-400);
+    font-size: 16;
+  }
+}
+
+.OOS {
+  opacity: 0.5;
+}
+
+.OOStext {
+  position: relative;
+  left: 120px;
+  top: -300px;
+  font-size: 48px;
+  font-family: var(--font-raleway);
+  font-weight: var(--fw-400);
+}

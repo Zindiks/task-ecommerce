@@ -1,0 +1,38 @@
+.ButtonActive,
+.ButtonPassive {
+  width: 292px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.ButtonActive {
+  button {
+    background-color: var(--primary);
+    color: var(--white);
+    width: 100%;
+    border: none;
+    padding: 16px 32px;
+    font-family: var(--font-raleway);
+    font-weight: var(--fw-600);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-hover);
+    }
+  }
+}
+
+.ButtonPassive {
+  button {
+    background-color: var(--light-gray);
+    color: var(--white);
+    width: 100%;
+    border: none;
+    padding: 16px 32px;
+    font-family: var(--font-raleway);
+    font-weight: var(--fw-600);
+    font-size: 16px;
+  }
+}
