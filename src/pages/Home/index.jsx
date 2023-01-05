@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { Query } from '@apollo/client/react/components';
 import { useParams } from 'react-router-dom';
 
-// import { setSelectedAttributesToEmpty } from '../../store/slices/productSlice';
-import { QUERY_DATA_BY_CATEGORY } from '../../graphql/queries';
+import { QUERY_DATA_BY_CATEGORY, QUERY_ALL_PRODUCTS } from '../../graphql/queries';
 import { setCategory } from '../../store/slices/headerSlice';
 import CardBox from '../../components/CardBox';
 import Empty from '../../components/Empty';

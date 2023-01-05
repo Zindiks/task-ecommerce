@@ -146,3 +146,24 @@ export const QUERY_PRODUCT_BY_ID = gql`
     }
   }
 `;
+
+export const QUERY_ALL_PRODUCTS = gql`
+  query {
+    categories {
+      products {
+        id
+        name
+        inStock
+        gallery
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }
+    }
+  }
+`;
