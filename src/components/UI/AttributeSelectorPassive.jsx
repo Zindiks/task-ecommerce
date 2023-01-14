@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Style from './Attribute.module.scss';
 export class AttributeSelectorPassive extends Component {
   render() {
-    console.log(this.props.selected[this.props.id]);
+    console.log(this.props);
 
     return (
       <div className={Style.AttributeSelector}>

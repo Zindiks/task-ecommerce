@@ -36,18 +36,25 @@
       }
     }
 
-    .SizeActive {
-      background-color: var(--black);
-      color: var(--white);
-    }
     .SizeSelector {
       background-color: var(--white);
       color: var(--black);
+
       cursor: pointer;
       &:hover {
         background-color: var(--black);
         color: var(--white);
       }
+    }
+
+    .SizeActive {
+      background-color: var(--black);
+      color: var(--white);
+    }
+
+    .PassiveSize {
+      background-color: var(--white);
+      color: var(--black);
     }
 
     .ColorSelector,
@@ -76,11 +83,6 @@
           border: none;
         }
       }
-    }
-
-    .PassiveSize {
-      background-color: var(--white);
-      color: var(--black);
     }
 
     .ColorSelectorActive {

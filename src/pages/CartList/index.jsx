@@ -38,7 +38,6 @@ class CartList extends Component {
           </div>
           <div>
             <p>Quantity:</p>
-            {/* <h3>{getCartCount(this.props.selectedData)}</h3> */}
             <h3>{this.props.cartCount}</h3>
           </div>
 

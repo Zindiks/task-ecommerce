@@ -10,8 +10,6 @@ import AttributeSelector from '../../components/UI/AttributeSelector';
 import ButtonBtn from '../../components/UI/ButtonBtn';
 import { onClickPlus } from '../../store/slices/cartSlice';
 import { setCategory } from '../../store/slices/headerSlice';
-// import { setSelectedAttributesToEmpty } from '../../store/slices/productSlice';
-import { createArticleInObject } from '../../utils/calculations';
 import { QUERY_PRODUCT_BY_ID } from '../../graphql/queries';
 
 import Style from './ProductDetails.module.scss';
@@ -40,8 +38,6 @@ export class ProductDetails extends Component {
 
   handleAddToCart = (id, data) => {
     const article = `${id}-${Object.values(this.state.selectedOptions).join('-')}`;
-
-    console.log({ ...data, article });
 
     return { ...data, selected: this.state.selectedOptions, article };
   };
@@ -108,6 +104,7 @@ export class ProductDetails extends Component {
                         setOptions={this.setOptions}
                         selected={this.state.selectedOptions}
                         {...attribute}
+                        changeable
                       />
                     );
                   })}
@@ -130,11 +127,9 @@ export class ProductDetails extends Component {
 
                 {data.product.inStock ? (
                   <ButtonBtn
-                    // onClick={() => this.props.onClickPlus(createArticleInObject(data.product))}
                     onClick={() =>
                       this.props.onClickPlus(this.handleAddToCart(data.product.id, data.product))
                     }
-                    // onClick={this.handleAddToCart(data.product.id)}
                     status={'active'}
                     title="ADD TO CART"
                   />

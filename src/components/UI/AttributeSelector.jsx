@@ -7,25 +7,29 @@ export class AttributeSelector extends Component {
   };
 
   renderItem = (item) => {
+    const isSelected = this.props.selected[this.props.id] === item.value;
+    const isChangeable = this.props.changeable;
+    const isChangeableColorSelector = isChangeable ? Style.ColorSelector : Style.PassiveColor;
+    const isChangeableSizeSelector = isChangeable ? Style.SizeSelector : Style.PassiveSize;
+
     switch (this.props.type) {
       case 'swatch':
         return (
           <label
             key={item.value}
-            className={
-              this.props.selected[this.props.id] === item.value
-                ? Style.ColorSelectorActive
-                : Style.ColorSelector
-            }
+            className={isSelected ? Style.ColorSelectorActive : isChangeableColorSelector}
           >
-            <input
-              type="radio"
-              name={this.props.name}
-              value={item.value}
-              checked={this.props.selected[this.props.id] === item.value}
-              onChange={() => this.handleClick(item)}
-              hidden
-            />
+            {isChangeable && (
+              <input
+                type="radio"
+                name={this.props.name}
+                value={item.value}
+                checked={isSelected}
+                onChange={() => this.handleClick(item)}
+                hidden
+              />
+            )}
+
             <div style={{ backgroundColor: item.value }}></div>
           </label>
         );
@@ -33,20 +37,19 @@ export class AttributeSelector extends Component {
         return (
           <label
             key={item.value}
-            className={
-              this.props.selected[this.props.id] === item.value
-                ? Style.SizeActive
-                : Style.SizeSelector
-            }
+            className={isSelected ? Style.SizeActive : isChangeableSizeSelector}
           >
-            <input
-              type="radio"
-              name={this.props.name}
-              value={item.value}
-              checked={this.props.selected[this.props.id] === item.value}
-              onChange={() => this.handleClick(item)}
-              hidden
-            />
+            {isChangeable && (
+              <input
+                type="radio"
+                name={this.props.name}
+                value={item.value}
+                checked={isSelected}
+                onChange={() => this.handleClick(item)}
+                hidden
+              />
+            )}
+
             <p>{item.value}</p>
           </label>
         );

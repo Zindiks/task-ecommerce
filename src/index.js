@@ -5,9 +5,10 @@ import store from './store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import { url2 } from './config';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000',
+  uri: url2,
   cache: new InMemoryCache(),
 });
 

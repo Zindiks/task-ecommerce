@@ -45,9 +45,7 @@ export class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  // isCartOpen: state.headerSlice.isCartOpen,
   category: state.headerSlice.category,
-  // selectedData: state.cartSlice.selectedData,
   categoriesData: state.headerSlice.categoriesData,
 });
 

@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { reqCategories, reqCurrencies } from '../../graphql/queries';
+import { url2 } from '../../config';
 
 export const fetchCategories = createAsyncThunk('header/fetchCategories', async () => {
-  const data = await fetch('http://localhost:4000', {
+  const data = await fetch(url2, {
     method: 'POST',
     headers: { 'Content-type': 'application/json' },
     body: JSON.stringify({ query: reqCategories }),
@@ -11,7 +12,7 @@ export const fetchCategories = createAsyncThunk('header/fetchCategories', async 
   return await data.json();
 });
 export const fetchCurrencies = createAsyncThunk('header/fetchCurrencies', async () => {
-  const data = await fetch('http://localhost:4000', {
+  const data = await fetch(url2, {
     method: 'POST',
     headers: { 'Content-type': 'application/json' },
     body: JSON.stringify({ query: reqCurrencies }),

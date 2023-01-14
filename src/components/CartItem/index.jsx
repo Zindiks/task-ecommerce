@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 
 import { onClickPlus, onClickMinus } from '../../store/slices/cartSlice';
 
-import AttributeSelectorPassive from '../UI/AttributeSelectorPassive';
-
 import Style from './CartItem.module.scss';
+import AttributeSelector from '../UI/AttributeSelectorPassive';
 
 class CartItem extends Component {
   constructor(props) {
@@ -36,8 +35,7 @@ class CartItem extends Component {
 
   render() {
     const { name, brand, attributes, gallery, count, selected } = this.props.selectedData;
-
-    // console.log(Object.keys(selected));
+    console.log(attributes);
 
     return (
       <div className={Style.cartItem} style={{ height: this.props.height }}>
@@ -52,27 +50,16 @@ class CartItem extends Component {
           <div className={Style.cartItemOptionsX}>
             {attributes.map((attribute, index) => {
               return (
-                <AttributeSelectorPassive
+                <AttributeSelector
                   selected={selected}
                   {...attribute}
+                  name={name}
+                  brand={brand}
                   key={attribute.id + attribute.name + index}
                 />
               );
             })}
           </div>
-
-          {/* <div className={Style.cartItemOptionsX}>
-            {Object.keys(selected).map((key) => {
-              console.log({ [key]: selected[key] });
-              return (
-                <AttributeSelectorPassive
-                  key={`selected ${key}:${selected[key]}`}
-                  selected={{ [key]: selected[key] }}
-                  {...attributes}
-                />
-              );
-            })}
-          </div> */}
         </div>
         <div className={Style.cartQI}>
           <div className={Style.cartQuantity}>
