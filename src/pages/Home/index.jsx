@@ -20,11 +20,9 @@ export class Home extends Component {
   }
 
   render() {
+    const paramsId = this.props.params.id && { input: { title: this.props.params.id } };
     return (
-      <Query
-        query={QUERY_DATA_BY_CATEGORY}
-        variables={this.props.params.id ? { input: { title: this.props.params.id } } : ''}
-      >
+      <Query query={QUERY_DATA_BY_CATEGORY} variables={paramsId}>
         {({ data, loading, error }) => {
           if (loading)
             return (
@@ -42,9 +40,11 @@ export class Home extends Component {
             return <Empty message={'NO SUCH CATEGORY :/'} />;
           }
 
+          console.log(this.props.params.id);
+
           return (
             <div className={Style.containerHome}>
-              {this.props.params.id ? <h1>{this.props.category.toUpperCase()}</h1> : <h1>Hello</h1>}
+              <h1>{data.category.name.toUpperCase()}</h1>
 
               <div className={Style.container}>
                 {data?.category &&

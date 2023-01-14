@@ -28,9 +28,7 @@ export class Currencies extends Component {
 
   onChangeCurrency(currency) {
     this.props.onClickCurrency(currency);
-
     localStorage.setItem('CURRENCY', JSON.stringify(currency));
-
     this.props.onClickClose();
   }
 

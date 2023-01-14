@@ -2,6 +2,12 @@ import { Component } from 'react';
 import Style from './Attribute.module.scss';
 
 export class AttributeSelector extends Component {
+  componentDidMount() {
+    if (this.props.changeable) {
+      this.props.setOptions(this.props.id, this.props.items[0].value);
+    }
+  }
+
   handleClick = (item) => {
     this.props.setOptions(this.props.id, item.value);
   };
@@ -56,15 +62,13 @@ export class AttributeSelector extends Component {
     }
   };
 
-  componentDidMount() {
-    this.props.setOptions(this.props.id, this.props.items[0].value);
-  }
-
   render() {
     return (
       <div className={Style.AttributeSelector}>
         <p className={Style.Title}>{this.props.name.toUpperCase()}:</p>
-        <div className={Style.Selector}>{this.props.items.map(this.renderItem)}</div>
+        <div className={Style.Selector}>
+          {this.props.items.map((item) => this.renderItem(item))}
+        </div>
       </div>
     );
   }

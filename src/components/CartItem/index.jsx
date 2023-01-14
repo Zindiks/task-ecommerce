@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { onClickPlus, onClickMinus } from '../../store/slices/cartSlice';
 
 import Style from './CartItem.module.scss';
-import AttributeSelector from '../UI/AttributeSelectorPassive';
+import AttributeSelector from '../UI/AttributeSelector';
 
 class CartItem extends Component {
   constructor(props) {
@@ -56,6 +56,7 @@ class CartItem extends Component {
                   name={name}
                   brand={brand}
                   key={attribute.id + attribute.name + index}
+                  changeable={false}
                 />
               );
             })}

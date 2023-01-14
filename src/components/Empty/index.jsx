@@ -10,6 +10,8 @@ class Empty extends Component {
     super(props);
     this.state = {
       redirect: false,
+      message: 'Redirect in 3 sec',
+      button: true,
       redirectPath: !this.props.categoriesData[0]?.name
         ? `/`
         : `/${this.props.categoriesData[0].name}`,
@@ -17,7 +19,18 @@ class Empty extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({ redirect: true }), 3000);
+    this.timeoutId = setTimeout(() => this.setState({ redirect: true }), 3000);
+  }
+
+  // Prevents infinity loop
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.redirect !== this.state.redirect && this.state.redirect === true) {
+      this.setState({
+        redirect: false,
+        message: 'STATUS 500 SERVER NOT RESPONDING',
+        button: false,
+      });
+    }
   }
 
   render() {
@@ -27,11 +40,13 @@ class Empty extends Component {
     return (
       <div className={Style.Info}>
         <h1> {this.props.message}</h1>
-        <p> Redirect in 3 sec</p>
+        <p>{this.state.message}</p>
         <div>
-          <NavLink to={this.state.redirectPath}>
-            <ButtonBtn status={'active'} title="BACK TO HOME" />
-          </NavLink>
+          {this.state.button && (
+            <NavLink to={this.state.redirectPath}>
+              <ButtonBtn status={'active'} title="BACK TO HOME" />
+            </NavLink>
+          )}
         </div>
       </div>
     );
