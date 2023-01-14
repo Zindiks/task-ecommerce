@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 import Style from './Button.module.scss';
 
-export class ButtonBtn extends Component {
+export class Btn extends Component {
   render() {
     return (
       <div
@@ -15,4 +15,4 @@ export class ButtonBtn extends Component {
   }
 }
 
-export default ButtonBtn;
+export default Btn;

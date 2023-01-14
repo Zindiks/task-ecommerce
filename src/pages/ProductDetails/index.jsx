@@ -7,7 +7,7 @@ import cn from 'classnames';
 
 import Empty from '../../components/Empty';
 import AttributeSelector from '../../components/UI/AttributeSelector';
-import ButtonBtn from '../../components/UI/ButtonBtn';
+import ButtonBtn from '../../components/UI/Btn';
 import { onClickPlus } from '../../store/slices/cartSlice';
 import { setCategory } from '../../store/slices/headerSlice';
 import { QUERY_PRODUCT_BY_ID } from '../../graphql/queries';
@@ -148,7 +148,6 @@ export class ProductDetails extends Component {
 
 const mapStateToProps = (state) => ({
   currency: state.headerSlice.currency,
-  data: state.productSlice.selected,
 });
 
 const mapDispatchToProps = (dispatch) => ({

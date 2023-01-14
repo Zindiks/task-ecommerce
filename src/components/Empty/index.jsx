@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { NavLink, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ButtonBtn from '../UI/ButtonBtn';
+import ButtonBtn from '../UI/Btn';
 
 import Style from './Empty.module.scss';
 

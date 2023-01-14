@@ -79,8 +79,8 @@ export class Drawer extends Component {
 
 const mapStateToProps = (state) => ({
   isDrawerOpen: state.headerSlice.isDrawerOpen,
-  selectedData: state.cartSlice.selectedData,
   currency: state.headerSlice.currency,
+  selectedData: state.cartSlice.selectedData,
   cartCount: state.cartSlice.cartCount,
 });
 

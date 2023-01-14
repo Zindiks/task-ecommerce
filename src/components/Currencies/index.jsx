@@ -1,5 +1,3 @@
-// This code is for a React component called Currencies that is connected to a Redux store. It is used to display a list of currencies and allow the user to select one of them.
-
 import { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { onClickActive, onClickCurrency, onClickClose } from '../../store/slices/headerSlice';

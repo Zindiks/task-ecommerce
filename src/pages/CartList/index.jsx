@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getTotalPrice } from '../../utils/calculations';
 import { cleanData } from '../../store/slices/cartSlice';
 import CartItem from '../../components/CartItem';
-import ButtonBtn from '../../components/UI/ButtonBtn';
+import Btn from '../../components/UI/Btn';
 
 import Style from './CartList.module.scss';
 
@@ -51,7 +51,7 @@ class CartList extends Component {
             </h3>
           </div>
 
-          <ButtonBtn status="active" title="ORDER" onClick={() => this.props.cleanData()} />
+          <Btn status="active" title="ORDER" onClick={() => this.props.cleanData()} />
         </div>
       </div>
     );

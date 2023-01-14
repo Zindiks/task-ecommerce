@@ -35,8 +35,6 @@ class CartItem extends Component {
 
   render() {
     const { name, brand, attributes, gallery, count, selected } = this.props.selectedData;
-    console.log(attributes);
-
     return (
       <div className={Style.cartItem} style={{ height: this.props.height }}>
         <div className={Style.cartItemOptions}>
@@ -56,7 +54,6 @@ class CartItem extends Component {
                   name={name}
                   brand={brand}
                   key={attribute.id + attribute.name + index}
-                  changeable={false}
                 />
               );
             })}

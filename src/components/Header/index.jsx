@@ -10,12 +10,12 @@ import Style from './Header.module.scss';
 
 export class Header extends Component {
   render() {
-    const { categoriesData, setCategory } = this.props;
+    const { categoriesList, setCategory } = this.props;
     return (
       <div className={Style.header}>
         <ul className={Style.categories}>
-          {categoriesData.length > 0 &&
-            categoriesData.map((category, index) => {
+          {categoriesList.length > 0 &&
+            categoriesList.map((category, index) => {
               return (
                 <div
                   onClick={() => setCategory(category.name)}
@@ -46,7 +46,7 @@ export class Header extends Component {
 
 const mapStateToProps = (state) => ({
   category: state.headerSlice.category,
-  categoriesData: state.headerSlice.categoriesData,
+  categoriesList: state.headerSlice.categoriesData,
 });
 
 const mapDispatchToProps = (dispatch) => ({
