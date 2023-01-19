@@ -15,7 +15,7 @@ export class Drawer extends Component {
     this.refDrawer = createRef();
 
     this.handleClickOutside = (e) => {
-      if (!e.path.includes(this.refDrawer.current)) {
+      if (!this.refDrawer.current.contains(e.target)) {
         this.props.setDrawerClose();
       }
     };

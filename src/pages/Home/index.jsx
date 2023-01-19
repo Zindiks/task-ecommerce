@@ -41,7 +41,7 @@ export class Home extends Component {
             return <Empty message={'NO SUCH CATEGORY :/'} />;
           }
 
-          console.log(this.props.params.id);
+          console.log(data);
 
           return (
             <div className={Style.containerHome}>

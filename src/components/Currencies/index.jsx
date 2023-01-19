@@ -10,7 +10,7 @@ export class Currencies extends Component {
 
     this.ref = createRef();
     this.handleClickOutside = (e) => {
-      if (!e.path.includes(this.ref.current)) {
+      if (!this.ref.current.contains(e.target)) {
         this.props.onClickClose();
       }
     };

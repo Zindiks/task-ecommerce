@@ -12,10 +12,14 @@ export const getCartCount = (selected) => {
   return selected ? selected.reduce((total, current) => current.count + total, 0) : 0;
 };
 
-export const createArticleInObject = (item) => {
+export const selectFirstsAttributesToCart = (item) => {
   let article = item.id;
+  const selected = {};
+
   for (let i = 0; i < item.attributes.length; i++) {
-    article += `-${item.attributes[i].selected.id}`;
+    selected[item.attributes[i].id] = item.attributes[i].items[0].value;
+    article += `-${item.attributes[i].items[0].value}`;
   }
-  return { ...item, article };
+
+  return { ...item, article, selected };
 };

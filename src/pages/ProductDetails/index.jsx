@@ -37,7 +37,13 @@ export class ProductDetails extends Component {
   };
 
   handleAddToCart = (id, data) => {
-    const article = `${id}-${Object.values(this.state.selectedOptions).join('-')}`;
+    let article;
+
+    if (Object.keys(this.state.selectedOptions).length === 0) {
+      article = id;
+    } else {
+      article = `${id}-${Object.values(this.state.selectedOptions).join('-')}`;
+    }
 
     return { ...data, selected: this.state.selectedOptions, article };
   };

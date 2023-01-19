@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { onClickPlus } from '../../store/slices/cartSlice';
-import { createArticleInObject } from '../../utils/calculations';
+import { selectFirstsAttributesToCart } from '../../utils/calculations';
 import Skeleton from './Skeleton';
 
 import Style from './CardBox.module.scss';
@@ -47,7 +47,7 @@ class CardBox extends Component {
         </Link>
 
         <div
-          onClick={() => this.props.onClickPlus(createArticleInObject(this.props.item))}
+          onClick={() => this.props.onClickPlus(selectFirstsAttributesToCart(this.props.item))}
           className={!this.props.item.inStock ? '' : Style.button}
         >
           <img src="./img/cart.svg" alt="cart" />

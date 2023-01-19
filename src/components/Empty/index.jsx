@@ -22,7 +22,7 @@ class Empty extends Component {
     this.timeoutId = setTimeout(() => this.setState({ redirect: true }), 3000);
   }
 
-  // Prevents infinity loop
+  // Prevents infinite  loop
   componentDidUpdate(prevProps, prevState) {
     if (prevState.redirect !== this.state.redirect && this.state.redirect === true) {
       this.setState({
