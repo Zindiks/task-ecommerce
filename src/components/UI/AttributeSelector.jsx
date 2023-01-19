@@ -1,20 +1,26 @@
-import Style from './Attribute.module.scss';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateSelectedAttribute } from '../../store/slices/productSlice';
+
+import { updateSelectedAttribute, setSelectedAttributes } from '../../store/slices/productSlice';
+import Style from './Attribute.module.scss';
 
 export class AttributeSelector extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selected: this.props.selected,
+      selected: this.props.items[0].id,
     };
   }
 
   onHandleClick(input) {
-    this.props.updateSelectedAttribute(input);
-    this.setState({ selected: input });
+    this.setState({ selected: input.id });
+    const obj = {
+      type: this.props.id,
+      active: input.id,
+    };
+
+    this.props.setSelectedAttributes(obj);
   }
 
   render() {
@@ -28,9 +34,7 @@ export class AttributeSelector extends Component {
                 onClick={() => this.onHandleClick({ ...item, name: this.props.name })}
                 key={item.value}
                 className={
-                  this.state.selected.id === item.id
-                    ? Style.ColorSelectorActive
-                    : Style.ColorSelector
+                  this.state.selected === item.id ? Style.ColorSelectorActive : Style.ColorSelector
                 }
               >
                 <div style={{ backgroundColor: item.value }}></div>
@@ -39,9 +43,7 @@ export class AttributeSelector extends Component {
               <div
                 onClick={() => this.onHandleClick({ ...item, name: this.props.name })}
                 key={item.value}
-                className={
-                  this.state.selected.id === item.id ? Style.SizeActive : Style.SizeSelector
-                }
+                className={this.state.selected === item.id ? Style.SizeActive : Style.SizeSelector}
               >
                 <p>{item.value}</p>
               </div>
@@ -55,6 +57,7 @@ export class AttributeSelector extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   updateSelectedAttribute: (value) => dispatch(updateSelectedAttribute(value)),
+  setSelectedAttributes: (value) => dispatch(setSelectedAttributes(value)),
 });
 
 export default connect(null, mapDispatchToProps)(AttributeSelector);

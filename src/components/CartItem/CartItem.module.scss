@@ -18,7 +18,7 @@
         overflow-y: scroll;
 
         &::-webkit-scrollbar-thumb {
-          background-color: #5ece7b;
+          background-color: var(--primary);
         }
 
         &::-webkit-scrollbar {
@@ -54,7 +54,7 @@
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
-      font-weight: 500;
+      font-weight: var(--fw-500);
       font-size: 16px;
       margin-left: auto;
       margin-right: 0;
@@ -65,8 +65,6 @@
         width: 24px;
         height: 24px;
         cursor: pointer;
-        // border: 1px solid #1d1f22;
-        // text-align: center;
       }
     }
 

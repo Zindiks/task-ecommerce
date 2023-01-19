@@ -1,43 +1,73 @@
 import { Component } from 'react';
-import CardBox from '../../components/CardBox';
 import { connect } from 'react-redux';
+import { Query } from '@apollo/client/react/components';
+import { useParams } from 'react-router-dom';
+
+import { setSelectedAttributesToEmpty } from '../../store/slices/productSlice';
+import { QUERY_DATA_BY_CATEGORY } from '../../graphql/queries';
+import { setCategory } from '../../store/slices/headerSlice';
+import CardBox from '../../components/CardBox';
+import Empty from '../../components/Empty';
+
 import Style from './Home.module.scss';
 
-export class Home extends Component {
-  constructor(props) {
-    super(props);
+function withParams(Component) {
+  return (props) => <Component {...props} params={useParams()} />;
+}
 
-    this.state = {
-      data: '',
-    };
+export class Home extends Component {
+  componentDidMount() {
+    this.props.setSelectedAttributesToEmpty();
   }
 
-  componentDidMount() {
-    this.setState({ data: this.props.data });
+  componentDidUpdate() {
+    this.props.onChange(this.props.params.id);
   }
 
   render() {
     return (
-      <div className={Style.containerHome}>
-        {this.props.data && (
-          <>
-            <h1>{this.props.category.toUpperCase()}</h1>
-            <div className={Style.container}>
-              {this.props.data &&
-                this.props.data.data.category.products.map((item) => (
-                  <CardBox key={item.id} item={item} status={this.props.status} />
-                ))}
+      <Query query={QUERY_DATA_BY_CATEGORY} variables={{ input: { title: this.props.params.id } }}>
+        {({ data, loading, error }) => {
+          if (loading)
+            return (
+              <div className={Style.containerHome}>
+                <div className={Style.container}>
+                  {[...Array(6)].map((item) => (
+                    <CardBox key={item} status={loading} />
+                  ))}
+                </div>
+              </div>
+            );
+          if (error) return <Empty message={`Error: ${error.message}`} />;
+
+          if (data?.category === null) {
+            return <Empty message={'NO SUCH CATEGORY :/'} />;
+          }
+
+          return (
+            <div className={Style.containerHome}>
+              <h1>{this.props.category.toUpperCase()}</h1>
+              <div className={Style.container}>
+                {data?.category &&
+                  data.category.products.map((item) => (
+                    <CardBox key={item.id} item={item} status={loading} />
+                  ))}
+              </div>
             </div>
-          </>
-        )}
-      </div>
+          );
+        }}
+      </Query>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
   category: state.headerSlice.category,
-  data: state.productSlice.data,
-  status: state.productSlice.status,
 });
-export default connect(mapStateToProps)(Home);
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (value) => dispatch(setCategory(value)),
+  setSelectedAttributesToEmpty: () => dispatch(setSelectedAttributesToEmpty()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withParams(Home));

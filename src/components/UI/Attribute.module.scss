@@ -4,7 +4,7 @@
 
   .Title {
     margin-bottom: 2px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: var(--font-roboto);
     font-size: 1rem;
   }
 
@@ -24,8 +24,8 @@
       height: 2.5em;
       text-align: justify;
       font-size: 0.7rem;
-      font-weight: 500;
-      border: 1px solid #000000;
+      font-weight: var(--fw-500);
+      border: 1px solid var(--black);
 
       margin-right: 4px;
 
@@ -37,16 +37,16 @@
     }
 
     .SizeActive {
-      background-color: #000000;
-      color: #ffffff;
+      background-color: var(--black);
+      color: var(--white);
     }
     .SizeSelector {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: var(--white);
+      color: var(--black);
       cursor: pointer;
       &:hover {
-        background-color: #000000;
-        color: #ffffff;
+        background-color: var(--black);
+        color: var(--white);
       }
     }
 
@@ -64,14 +64,14 @@
       div {
         width: 95%;
         height: 95%;
-        border: 1px solid #e2e2e2;
+        border: 1px solid var(--light-gray);
       }
     }
 
     .ColorSelector {
       cursor: pointer;
       &:hover {
-        border: 1px solid #5ece7b;
+        border: 1px solid var(--primary);
         div {
           border: none;
         }
@@ -79,12 +79,12 @@
     }
 
     .PassiveSize {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: var(--white);
+      color: var(--black);
     }
 
     .ColorSelectorActive {
-      border: 1px solid #5ece7b;
+      border: 1px solid var(--primary);
       div {
         border: none;
       }

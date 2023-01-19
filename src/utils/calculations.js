@@ -9,17 +9,29 @@ export const getTotalPrice = (selected, currency) => {
 };
 
 export const getCartCount = (selected) => {
-  return selected.reduce((total, current) => current.count + total, 0);
+  // if (selected) {
+  //   return selected.reduce((total, current) => current.count + total, 0);
+  // } else {
+  //   return 0;
+  // }
+
+  return selected ? selected.reduce((total, current) => current.count + total, 0) : 0;
 };
 
 export const createArticleInObject = (item) => {
-  let itemObj = { ...item };
-  itemObj.article = '';
-  let article = itemObj.id;
-  for (let i = 0; i < itemObj.attributes.length; i++) {
-    article = article + `-${itemObj.attributes[i].selected.id}`;
-  }
-  itemObj.article = article;
+  // let itemObj = { ...item };
+  // itemObj.article = '';
+  // let article = itemObj.id;
+  // for (let i = 0; i < itemObj.attributes.length; i++) {
+  //   article = article + `-${itemObj.attributes[i].selected.id}`;
+  // }
+  // itemObj.article = article;
 
-  return itemObj;
+  // return itemObj;
+
+  let article = item.id;
+  for (let i = 0; i < item.attributes.length; i++) {
+    article += `-${item.attributes[i].selected.id}`;
+  }
+  return { ...item, article };
 };
