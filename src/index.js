@@ -6,10 +6,11 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { url2 } from './config';
+import { persistCache } from 'apollo3-cache-persist';
 
 const client = new ApolloClient({
   uri: url2,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({}),
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

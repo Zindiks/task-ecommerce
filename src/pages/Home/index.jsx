@@ -29,8 +29,8 @@ export class Home extends Component {
             return (
               <div className={Style.containerHome}>
                 <div className={Style.container}>
-                  {[...Array(6)].map((item) => (
-                    <CardBox key={item} status={loading} />
+                  {[...Array(6)].map((_, index) => (
+                    <CardBox key={index} status={loading} />
                   ))}
                 </div>
               </div>

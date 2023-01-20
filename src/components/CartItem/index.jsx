@@ -51,7 +51,6 @@ class CartItem extends Component {
                 <AttributeSelector
                   selected={selected}
                   {...attribute}
-                  name={name}
                   brand={brand}
                   key={attribute.id + attribute.name + index}
                 />
@@ -65,25 +64,25 @@ class CartItem extends Component {
               onClick={() => this.props.onClickPlus(this.props.selectedData)}
               className={Style.selector}
             >
-              <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#clip0_150_1451)">
+              <svg viewBox='0 0 45 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <g clipPath='url(#clip0_150_1451)'>
                   <path
-                    d="M22.5 15V30"
-                    stroke="#1D1F22"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    d='M22.5 15V30'
+                    stroke='#1D1F22'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                   <path
-                    d="M15 22.5H30"
-                    stroke="#1D1F22"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    d='M15 22.5H30'
+                    stroke='#1D1F22'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
-                  <rect x="0.5" y="0.5" width="44" height="44" stroke="#1D1F22" />
+                  <rect x='0.5' y='0.5' width='44' height='44' stroke='#1D1F22' />
                 </g>
                 <defs>
-                  <clipPath id="clip0_150_1451">
-                    <rect width="45" height="45" fill="white" />
+                  <clipPath id='clip0_150_1451'>
+                    <rect width='45' height='45' fill='white' />
                   </clipPath>
                 </defs>
               </svg>
@@ -93,55 +92,55 @@ class CartItem extends Component {
               onClick={() => this.props.onClickMinus(this.props.selectedData)}
               className={Style.selector}
             >
-              <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox='0 0 45 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
-                  d="M15 22.5H30"
-                  stroke="#1D1F22"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  d='M15 22.5H30'
+                  stroke='#1D1F22'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 />
-                <rect x="0.5" y="0.5" width="44" height="44" stroke="#1D1F22" />
+                <rect x='0.5' y='0.5' width='44' height='44' stroke='#1D1F22' />
               </svg>
             </div>
           </div>
 
           <div className={Style.cartImage}>
-            <img src={gallery[this.state.value]} alt="socks" />
+            <img src={gallery[this.state.value]} alt='socks' />
 
             {this.state.total > 1 && this.props.isActive && (
               <>
                 <div className={Style.btnLeft} onClick={() => this.onClickDirection('right')}>
                   <svg
-                    width="8"
-                    height="14"
-                    viewBox="0 0 8 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    width='8'
+                    height='14'
+                    viewBox='0 0 8 14'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
                   >
                     <path
-                      d="M7.25 1.06857L1.625 6.6876L7.25 12.3066"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      d='M7.25 1.06857L1.625 6.6876L7.25 12.3066'
+                      stroke='white'
+                      strokeWidth='1.5'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                     />
                   </svg>
                 </div>
 
                 <div className={Style.btnRight} onClick={() => this.onClickDirection('left')}>
                   <svg
-                    width="8"
-                    height="14"
-                    viewBox="0 0 8 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    width='8'
+                    height='14'
+                    viewBox='0 0 8 14'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
                   >
                     <path
-                      d="M7.25 1.06857L1.625 6.6876L7.25 12.3066"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      d='M7.25 1.06857L1.625 6.6876L7.25 12.3066'
+                      stroke='white'
+                      strokeWidth='1.5'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
                     />
                   </svg>
                 </div>

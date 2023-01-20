@@ -50,7 +50,11 @@ export class ProductDetails extends Component {
 
   render() {
     return (
-      <Query query={QUERY_PRODUCT_BY_ID} variables={{ id: this.props.params.id }}>
+      <Query
+        query={QUERY_PRODUCT_BY_ID}
+        variables={{ id: this.props.params.id }}
+        fetchPolicy='network-only'
+      >
         {({ data, loading, error }) => {
           if (loading) {
             return <p>Loading...{this.props.params.id}</p>;
@@ -65,6 +69,8 @@ export class ProductDetails extends Component {
           if (data?.product === null) {
             return <Empty message={`PRODUCT NOT FOUND`} />;
           }
+
+          console.log(data);
 
           return (
             <div className={Style.Item}>
@@ -137,10 +143,10 @@ export class ProductDetails extends Component {
                       this.props.onClickPlus(this.handleAddToCart(data.product.id, data.product))
                     }
                     status={'active'}
-                    title="ADD TO CART"
+                    title='ADD TO CART'
                   />
                 ) : (
-                  <ButtonBtn status="passive" title="OUT OF STOCK" />
+                  <ButtonBtn status='passive' title='OUT OF STOCK' />
                 )}
                 <div className={Style.Description}>{HTMLReactParser(data.product.description)}</div>
               </div>
