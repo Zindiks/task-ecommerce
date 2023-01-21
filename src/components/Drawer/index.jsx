@@ -32,7 +32,7 @@ export class Drawer extends Component {
   handleCheckOut = () => {
     this.props.cleanData();
     this.props.setDrawerClose();
-    toast.success('Success');
+    toast.success('Success... please check console');
   };
 
   render() {

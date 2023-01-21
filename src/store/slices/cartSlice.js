@@ -35,8 +35,25 @@ const cartSlice = createSlice({
       state.cartCount = getCartCount(state.selectedData);
     },
     cleanData(state) {
-      console.log('TRANSFER DATA TO ANOTHER SERVER...!!!');
-      console.log(current(state.selectedData));
+      console.log('HERE IS AN ORDER');
+
+      let order = {};
+
+      state.selectedData.forEach((selectedItem) => {
+        const { id, article, selected, count, name, category, brand } = selectedItem;
+
+        order[article] = {
+          id,
+          article,
+          count,
+          selected: JSON.stringify(selected),
+          name,
+          category,
+          brand,
+        };
+      });
+      console.log(order);
+
       localStorage.setItem('CART_DATA', JSON.stringify([]));
       state.selectedData = JSON.parse(localStorage.getItem('CART_DATA'));
       state.cartCount = getCartCount(state.selectedData);

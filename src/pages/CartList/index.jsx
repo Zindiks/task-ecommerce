@@ -8,8 +8,13 @@ import Btn from '../../components/UI/Btn';
 
 import Style from './CartList.module.scss';
 import { localVatTax } from '../../config';
+import { toast } from 'react-toastify';
 
 class CartList extends Component {
+  handleCheckOut() {
+    this.props.cleanData();
+    toast.success('Success, please check the console');
+  }
   render() {
     return (
       <div className={Style.CartListPage}>
@@ -64,7 +69,7 @@ class CartList extends Component {
             </h3>
           </div>
 
-          <Btn status='active' title='ORDER' onClick={() => this.props.cleanData()} />
+          <Btn status='active' title='ORDER' onClick={() => this.handleCheckOut()} />
         </div>
       </div>
     );
