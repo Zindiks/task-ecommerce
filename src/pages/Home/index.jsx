@@ -23,7 +23,7 @@ export class Home extends Component {
   render() {
     const paramsId = this.props.params.id && { input: { title: this.props.params.id } };
     return (
-      <Query query={QUERY_DATA_BY_CATEGORY} variables={paramsId}>
+      <Query query={QUERY_DATA_BY_CATEGORY} variables={paramsId} fetchPolicy='no-cache'>
         {({ data, loading, error }) => {
           if (loading)
             return (

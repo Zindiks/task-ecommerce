@@ -1,10 +1,12 @@
 import { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { getTotalPrice } from '../../utils/calculations';
 import { setDrawerClose, setIsDrawerOpen } from '../../store/slices/headerSlice';
 import CartItem from '../CartItem';
+import { cleanData } from '../../store/slices/cartSlice';
 
 import Style from './Drawer.module.scss';
 
@@ -27,11 +29,17 @@ export class Drawer extends Component {
     document.body.removeEventListener('click', this.handleClickOutside);
   }
 
+  handleCheckOut = () => {
+    this.props.cleanData();
+    this.props.setDrawerClose();
+    toast.success('Success');
+  };
+
   render() {
     return (
       <div ref={this.refDrawer}>
         <div onClick={() => this.props.setIsDrawerOpen()}>
-          <img className={Style.cartImg} src="../img/header-cart.png" alt="cart" />
+          <img className={Style.cartImg} src='../img/header-cart.png' alt='cart' />
           {this.props.cartCount > 0 && (
             <div className={Style.cartItemCounter}>{this.props.cartCount}</div>
           )}
@@ -48,7 +56,20 @@ export class Drawer extends Component {
 
               <div className={Style.content}>
                 {this.props.selectedData.map((item) => {
-                  return <CartItem selectedData={item} key={item.article} height={'190px'} />;
+                  return (
+                    <CartItem
+                      selectedData={item}
+                      key={item.article}
+                      height={'190px'}
+                      sizeProps={{
+                        imgWidth: '121px',
+                        imgHeight: '190px',
+                        selector: '24px',
+                        itemOption: '148px',
+                        attributeSize: 22,
+                      }}
+                    />
+                  );
                 })}
               </div>
 
@@ -63,10 +84,12 @@ export class Drawer extends Component {
                   </h3>
                 </div>
                 <div className={Style.footerButtons}>
-                  <Link to="/cartlist" onClick={() => this.props.setDrawerClose()}>
+                  <Link to='/cartlist' onClick={() => this.props.setDrawerClose()}>
                     <button className={Style.viewbagBtn}>VIEW BAG</button>
                   </Link>
-                  <button className={Style.checkoutBtn}>CHECK OUT</button>
+                  <button className={Style.checkoutBtn} onClick={() => this.handleCheckOut()}>
+                    CHECK OUT
+                  </button>
                 </div>
               </div>
             </div>
@@ -87,6 +110,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setDrawerClose: () => dispatch(setDrawerClose()),
   setIsDrawerOpen: () => dispatch(setIsDrawerOpen()),
+  cleanData: () => dispatch(cleanData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Drawer);

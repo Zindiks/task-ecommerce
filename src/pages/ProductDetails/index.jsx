@@ -7,7 +7,7 @@ import cn from 'classnames';
 
 import Empty from '../../components/Empty';
 import AttributeSelector from '../../components/UI/AttributeSelector';
-import ButtonBtn from '../../components/UI/Btn';
+import Btn from '../../components/UI/Btn';
 import { onClickPlus } from '../../store/slices/cartSlice';
 import { setCategory } from '../../store/slices/headerSlice';
 import { QUERY_PRODUCT_BY_ID } from '../../graphql/queries';
@@ -37,14 +37,11 @@ export class ProductDetails extends Component {
   };
 
   handleAddToCart = (id, data) => {
-    let article;
+    let article = id;
 
-    if (Object.keys(this.state.selectedOptions).length === 0) {
-      article = id;
-    } else {
-      article = `${id}-${Object.values(this.state.selectedOptions).join('-')}`;
+    if (Object.keys(this.state.selectedOptions).length !== 0) {
+      article += `-${Object.values(this.state.selectedOptions).join('-')}`;
     }
-
     return { ...data, selected: this.state.selectedOptions, article };
   };
 
@@ -69,8 +66,6 @@ export class ProductDetails extends Component {
           if (data?.product === null) {
             return <Empty message={`PRODUCT NOT FOUND`} />;
           }
-
-          console.log(data);
 
           return (
             <div className={Style.Item}>
@@ -117,6 +112,7 @@ export class ProductDetails extends Component {
                         selected={this.state.selectedOptions}
                         {...attribute}
                         changeable
+                        attributeSize={38}
                       />
                     );
                   })}
@@ -138,7 +134,7 @@ export class ProductDetails extends Component {
                 </div>
 
                 {data.product.inStock ? (
-                  <ButtonBtn
+                  <Btn
                     onClick={() =>
                       this.props.onClickPlus(this.handleAddToCart(data.product.id, data.product))
                     }
@@ -146,7 +142,7 @@ export class ProductDetails extends Component {
                     title='ADD TO CART'
                   />
                 ) : (
-                  <ButtonBtn status='passive' title='OUT OF STOCK' />
+                  <Btn status='passive' title='OUT OF STOCK' />
                 )}
                 <div className={Style.Description}>{HTMLReactParser(data.product.description)}</div>
               </div>

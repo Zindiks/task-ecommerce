@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { ReactComponent as MinusIcon } from '../../assets/minus-square.svg';
+import { ReactComponent as PlusIcon } from '../../assets/plus-square.svg';
+import { ReactComponent as Arrow } from '../../assets/arrow.svg';
 
 import { onClickPlus, onClickMinus } from '../../store/slices/cartSlice';
 
@@ -35,9 +38,12 @@ class CartItem extends Component {
 
   render() {
     const { name, brand, attributes, gallery, count, selected } = this.props.selectedData;
+    const { imgWidth, imgHeight, selector, itemOption, attributeSize } = this.props.sizeProps;
+    const showArrows = this.state.total > 1 && this.props.isActive;
+
     return (
-      <div className={Style.cartItem} style={{ height: this.props.height }}>
-        <div className={Style.cartItemOptions}>
+      <div className={Style.cartItem} style={{ height: imgHeight }}>
+        <div className={Style.cartItemOptions} style={{ width: itemOption }}>
           <h3>{name}</h3>
           <p>{brand}</p>
 
@@ -53,96 +59,43 @@ class CartItem extends Component {
                   {...attribute}
                   brand={brand}
                   key={attribute.id + attribute.name + index}
+                  attributeSize={attributeSize}
                 />
               );
             })}
           </div>
         </div>
-        <div className={Style.cartQI}>
+        <div className={Style.cartQI} height={imgHeight}>
           <div className={Style.cartQuantity}>
-            <div
+            <button
+              style={{ width: selector, height: selector }}
+              className={Style.selector}
               onClick={() => this.props.onClickPlus(this.props.selectedData)}
-              className={Style.selector}
             >
-              <svg viewBox='0 0 45 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <g clipPath='url(#clip0_150_1451)'>
-                  <path
-                    d='M22.5 15V30'
-                    stroke='#1D1F22'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                  <path
-                    d='M15 22.5H30'
-                    stroke='#1D1F22'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  />
-                  <rect x='0.5' y='0.5' width='44' height='44' stroke='#1D1F22' />
-                </g>
-                <defs>
-                  <clipPath id='clip0_150_1451'>
-                    <rect width='45' height='45' fill='white' />
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
+              <PlusIcon style={{ width: selector, height: selector }} />
+            </button>
+
             <div>{count}</div>
-            <div
-              onClick={() => this.props.onClickMinus(this.props.selectedData)}
+            <button
+              style={{ width: selector, height: selector }}
               className={Style.selector}
+              onClick={() => this.props.onClickMinus(this.props.selectedData)}
             >
-              <svg viewBox='0 0 45 45' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <path
-                  d='M15 22.5H30'
-                  stroke='#1D1F22'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                />
-                <rect x='0.5' y='0.5' width='44' height='44' stroke='#1D1F22' />
-              </svg>
-            </div>
+              <MinusIcon style={{ width: selector, height: selector }} />
+            </button>
           </div>
 
           <div className={Style.cartImage}>
-            <img src={gallery[this.state.value]} alt='socks' />
+            <img src={gallery[this.state.value]} alt='images' width={imgWidth} height={imgHeight} />
 
-            {this.state.total > 1 && this.props.isActive && (
+            {showArrows && (
               <>
                 <div className={Style.btnLeft} onClick={() => this.onClickDirection('right')}>
-                  <svg
-                    width='8'
-                    height='14'
-                    viewBox='0 0 8 14'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      d='M7.25 1.06857L1.625 6.6876L7.25 12.3066'
-                      stroke='white'
-                      strokeWidth='1.5'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                    />
-                  </svg>
+                  <Arrow />
                 </div>
 
                 <div className={Style.btnRight} onClick={() => this.onClickDirection('left')}>
-                  <svg
-                    width='8'
-                    height='14'
-                    viewBox='0 0 8 14'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                  >
-                    <path
-                      d='M7.25 1.06857L1.625 6.6876L7.25 12.3066'
-                      stroke='white'
-                      strokeWidth='1.5'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                    />
-                  </svg>
+                  <Arrow />
                 </div>
               </>
             )}

@@ -7,6 +7,7 @@ import CartItem from '../../components/CartItem';
 import Btn from '../../components/UI/Btn';
 
 import Style from './CartList.module.scss';
+import { localVatTax } from '../../config';
 
 class CartList extends Component {
   render() {
@@ -20,7 +21,19 @@ class CartList extends Component {
             return (
               <div key={index}>
                 <div className={Style.Divider} key={index + 'divider'}></div>
-                <CartItem selectedData={item} key={item.article} isActive={true} height={'auto'} />
+                <CartItem
+                  selectedData={item}
+                  key={item.article}
+                  isActive={true}
+                  height={'auto'}
+                  sizeProps={{
+                    imgWidth: '200px',
+                    imgHeight: '288px',
+                    selector: '45px',
+                    itemOption: '250px',
+                    attributeSize: 38,
+                  }}
+                />
               </div>
             );
           })}
@@ -32,7 +45,7 @@ class CartList extends Component {
             <p>Tax 21%:</p>
             <h3>
               {`${this.props.currency.symbol} ${(
-                getTotalPrice(this.props.selectedData, this.props.currency.symbol) * 0.21
+                getTotalPrice(this.props.selectedData, this.props.currency.symbol) * localVatTax
               ).toFixed(2)}`}
             </h3>
           </div>
@@ -51,7 +64,7 @@ class CartList extends Component {
             </h3>
           </div>
 
-          <Btn status="active" title="ORDER" onClick={() => this.props.cleanData()} />
+          <Btn status='active' title='ORDER' onClick={() => this.props.cleanData()} />
         </div>
       </div>
     );

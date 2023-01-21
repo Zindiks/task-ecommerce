@@ -34,15 +34,17 @@ export class Currencies extends Component {
     if (this.props.currency === null) {
       return <>...</>;
     }
+
+    const popUp = this.props.isActive && this.props.currenciesData;
     return (
       <div className={Style.sort} ref={this.ref}>
         <div onClick={() => this.props.onClickActive()} className={Style.label}>
           {this.props.currency.symbol}
-          <img src="../img/vector.png" alt="vector" />
+          <img src='../img/vector.png' alt='vector' />
         </div>
 
         <div className={Style.sortPopup}>
-          {this.props.isActive && this.props.currenciesData && (
+          {popUp && (
             <ul>
               {this.props.currenciesData.map &&
                 this.props.currenciesData.map((currency) => {

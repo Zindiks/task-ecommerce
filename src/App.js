@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import CartList from './pages/CartList';
 import Info from './pages/Info';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Layout } from './Layout';
 
@@ -30,17 +32,20 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <Routes>
-          <Route path={`/`} element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="*" element={<Info />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cartlist" element={<CartList />} />
-            <Route path="/:id" element={<Home />} />
-          </Route>
-        </Routes>
-      </div>
+      <>
+        <div className='wrapper'>
+          <Routes>
+            <Route path={`/`} element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path='*' element={<Info />} />
+              <Route path='/product/:id' element={<ProductDetails />} />
+              <Route path='/cartlist' element={<CartList />} />
+              <Route path='/:id' element={<Home />} />
+            </Route>
+          </Routes>
+        </div>
+        <ToastContainer autoClose={2000} />
+      </>
     );
   }
 }

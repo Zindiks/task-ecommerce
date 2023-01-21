@@ -24,10 +24,14 @@ export class AttributeSelector extends Component {
           <label
             key={item.value}
             className={isSelected ? Style.ColorSelectorActive : isChangeableColorSelector}
+            style={{
+              width: this.props.attributeSize,
+              height: this.props.attributeSize,
+            }}
           >
             {isChangeable && (
               <input
-                type="radio"
+                type='radio'
                 name={this.props.name}
                 value={item.value}
                 checked={isSelected}
@@ -36,7 +40,13 @@ export class AttributeSelector extends Component {
               />
             )}
 
-            <div style={{ backgroundColor: item.value }}></div>
+            <div
+              style={{
+                backgroundColor: item.value,
+                width: this.props.attributeSize - 4,
+                height: this.props.attributeSize - 4,
+              }}
+            ></div>
           </label>
         );
       default:
@@ -47,7 +57,7 @@ export class AttributeSelector extends Component {
           >
             {isChangeable && (
               <input
-                type="radio"
+                type='radio'
                 name={this.props.name}
                 value={item.value}
                 checked={isSelected}

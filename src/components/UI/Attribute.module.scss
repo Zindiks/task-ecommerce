@@ -60,17 +60,17 @@
     .ColorSelector,
     .ColorSelectorActive,
     .PassiveColor {
-      width: 1.5em;
-      height: 1.5em;
+      // width: 36px;
+      // height: 36px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 1px;
-      margin-right: 2px;
+      margin-right: 4px;
 
       div {
-        width: 95%;
-        height: 95%;
+        // width: 95%;
+        // height: 95%;
         border: 1px solid var(--light-gray);
       }
     }
